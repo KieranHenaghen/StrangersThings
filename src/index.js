@@ -11,6 +11,7 @@ import {
 } from './components';
 
 const App = (props) => {
+    return (
     <BrowserRouter>
         <div id="navbar">
             <div id="title">
@@ -29,6 +30,7 @@ const App = (props) => {
         </Route>
         </section>
     </BrowserRouter>
+    )
 }
 
 ReactDOM.render(

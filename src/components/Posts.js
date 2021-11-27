@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
+const cohort = '2108-USD-RM-WEB-PT';
+const BASE_URL = `https://strangers-things.herokuapp.com/api/${ cohort }`;
+
+
 const Posts = () => {
     const [allPosts, setAllPosts] = useState([]);
     
