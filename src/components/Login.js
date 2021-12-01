@@ -6,13 +6,13 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/${ cohort }`;
 
 
 
-const Register = () => {
+const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const response = await fetch(`${BASE_URL}/users/register`, {
+        const response = await fetch(`${BASE_URL}/users/login`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -38,14 +38,14 @@ const Register = () => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="New Username" value={username} onChange={(event) => setUsername(event.target.value)}>
+                <input type="text" placeholder="Enter Username" value={username} onChange={(event) => setUsername(event.target.value)}>
 
                 </input>
-                <input type="text" placeholder="New Password" value={password} onChange={(event) => setPassword(event.target.value)}>
+                <input type="text" placeholder="Enter Password" value={password} onChange={(event) => setPassword(event.target.value)}>
 
                 </input>
                 <button type="submit">
-                    Create New Account
+                    Login
                 </button>
             </form>
             <div>
@@ -58,5 +58,4 @@ const Register = () => {
     )
 }
 
-
-export default Register;
+export default Login;

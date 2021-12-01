@@ -7,27 +7,71 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/${ cohort }`;
 
 import {
     Posts,
-    Register
+    Register,
+    PostForm,
+    Login
 } from './components';
 
 const App = (props) => {
+    const [dropdown, setDropdown] = useState(false);
     return (
     <BrowserRouter>
         <div id="navbar">
             <div id="title">
                 Stranger's Things
             </div>
-            <div id="profile">
-                Profile
+            <div className="dropdown-container" onMouseEnter={() => setDropdown(true)} onMouseLeave={() => setDropdown(false)}>
+                <div id="profile">
+                    <Link to="/profile">Profile</Link>
+                </div>
+                <div id="dropdown">
+                    {
+                        dropdown ?
+                        !localStorage.getItem("account-token") ?
+                        <>
+                        <div>
+                            <Link to="/register">Register</Link>
+                        </div>
+                        <div>
+                            <Link to="/login">Login</Link>
+                        </div> </>
+                        : <>
+                        <div>
+                            Messages
+                        </div>
+                        <div>
+                            Logout
+                        </div>
+                        </>
+                        : null
+                    }
+                </div>
             </div>
         </div>
         <section id="postsection">
-        <Route path="/posts">
-            <Posts />
-        </Route>
-        <Route exact path="/">
-            <Posts />
-        </Route>
+            {
+                localStorage.getItem("account-token") ? 
+                <button onClick={() => { 
+                    return (
+                        <PostForm />
+                    )}}>Create New Post</button>
+                : null
+            }
+            <Route path="/posts">
+                <Posts />
+            </Route>
+            <Route exact path="/">
+                <Posts />
+            </Route>
+            <Route path="/register">
+                <Register />
+            </Route>
+            <Route path="/login">
+                <Login />
+            </Route>
+            <Route>
+                
+            </Route>
         </section>
     </BrowserRouter>
     )

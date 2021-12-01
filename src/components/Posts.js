@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import { SinglePost } from './index';
 
 const cohort = '2108-USD-RM-WEB-PT';
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${ cohort }`;

@@ -7,3 +7,14 @@
     padding-bottom: 5px;
     border-bottom: 3px solid black;
 }
+#title {
+    padding-left: 10px;
+}
+#dropdown-container {
+    text-align: right;
+}
+#profile {
+    padding-right: 10px;
+    text-decoration: none;
+
+}
