@@ -11,31 +11,31 @@ const Posts = () => {
     
     useEffect(() => {
         const fetchAllPosts = async () => {
-            const response = await fetch(`${BASE_URL}/posts`);
-            const data = await response.json();
-
-            setAllPosts(data.data.allPosts);
-        }
-        fetchAllPosts();
+            try {
+                const response = await fetch(`${BASE_URL}/posts`);
+                const data = await response.json();
+                console.log(data);
+                setAllPosts(data.data.posts);
+            }
+            catch (err) {
+                console.log(err);
+            }}
+            fetchAllPosts();
+            
+            
     }, []);
     let totalPosts = null;
 
     if (allPosts && allPosts.length) {
         totalPosts = <div>
             {
-                allPosts.map(post => 
-                    <section key={post._id}>
-                        <h3>
-                            {post.title}
-                        </h3>
-                        <div>
-                            {post.description}
-                        </div>
-                    </section>)
+                allPosts.map((post) => 
+                    <SinglePost key={post._id} post={post} />
+                    )
             }
             </div>
-    }
 
+    }
 
     return (
         <div className="app-page-view">
