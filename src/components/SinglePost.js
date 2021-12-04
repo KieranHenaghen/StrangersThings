@@ -11,6 +11,7 @@ const SinglePost = (props) => {
     const [newPrice, setNewPrice] = useState('');
     const [newLocation, setNewLocation] = useState('');
     const [newWillDeliver, setNewWillDeliver] = useState(false);
+    const [send, setSend] = useState(false);
 
     const deletePost = async () => {
         try {
@@ -64,16 +65,19 @@ const SinglePost = (props) => {
                 {post.title}
             </div>
             <div>
-                {post.description}
+                Description: {post.description}
             </div>
             <div>
-                {post.price}
+                Price: {post.price}
             </div>
             <div>
-                {post.location}
+                Location: {post.location}
             </div>
             <div>
-                {post.willDeliver}
+                Will Deliver?: {
+                post.willDeliver ?
+                "Yes" : "No"
+                }
             </div>
             {
                 post.isAuthor ? <div>
@@ -82,9 +86,9 @@ const SinglePost = (props) => {
                     </div> 
                 : 
                 localStorage.getItem("account-token") ? 
-                <button onClick={() => {
-                    <SendMessage key={post._id} post={post} />
-                }}>Send Message</button>
+                send ? 
+                <SendMessage key={post._id} post={post} />
+                : <button onClick={() => setSend(true)}>Send Message</button>
                 : null
             }
         </div>

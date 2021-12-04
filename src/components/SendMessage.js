@@ -21,8 +21,8 @@ const SendMessage = (props) => {
                 })
             });
             const data = response.json();
-
-            setContent('')
+            console.log(data, content);
+            setContent('');
         }
         catch (err) {
             console.log(err);
@@ -30,11 +30,16 @@ const SendMessage = (props) => {
     }
 
     return (
-        <form>
-            <textarea type="text" value={content} placeholder="Message" onChange={(event) => setContent(event.target.value)}>
+        <div>
+            <form>
+                <textarea type="text" value={content} placeholder="Message" onChange={(event) => setContent(event.target.value)}>
 
-            </textarea>
-            <button onClick={submitMessage}>Submit Message</button>
-        </form>
+                </textarea>
+                <br></br>
+                <button onClick={submitMessage}>Submit Message</button>
+            </form>
+        </div>
         )
 }
+
+export default SendMessage;

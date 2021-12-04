@@ -30,6 +30,8 @@ const Register = () => {
 
         setUsername('');
         setPassword('');
+        window.location.reload(false);
+
 
     }
 
@@ -41,9 +43,11 @@ const Register = () => {
                 <input type="text" placeholder="New Username" value={username} onChange={(event) => setUsername(event.target.value)}>
 
                 </input>
+                <br></br>
                 <input type="text" placeholder="New Password" value={password} onChange={(event) => setPassword(event.target.value)}>
 
                 </input>
+                <br></br>
                 <button type="submit">
                     Create New Account
                 </button>

@@ -9,22 +9,22 @@ const NavBar = () => {
     <div id="navbar">
         <Route path="/profile">
             <div id="posts">
-                <Link to="/posts">Posts</Link>
+                <Link to="/posts" style={{ textDecoration: 'none' }}>Posts</Link>
             </div>
         </Route>
         <Route path="/me">
             <div id="posts">
-                <Link to="/posts">Posts</Link>
+                <Link to="/posts" style={{ textDecoration: 'none' }}>Posts</Link>
             </div>
         </Route>
         <Route path="/register">
             <div id="posts">
-                <Link to="/posts">Posts</Link>
+                <Link to="/posts" style={{ textDecoration: 'none' }}>Posts</Link>
             </div>
         </Route>
         <Route path="/login">
             <div id="posts">
-                <Link to="/posts">Posts</Link>
+                <Link to="/posts" style={{ textDecoration: 'none' }}>Posts</Link>
             </div>
         </Route>
 
@@ -35,7 +35,7 @@ const NavBar = () => {
         <Route exact path="/">
             <div className="dropdown-container" onMouseEnter={() => setDropdown(true)} onMouseLeave={() => setDropdown(false)}>
                 <div id="profile">
-                    <Link to="/profile">Profile</Link>
+                    <Link to="/profile" style={{ textDecoration: 'none' }}>Profile</Link>
                 </div>
                 <div id="dropdown">
                     {
@@ -43,20 +43,22 @@ const NavBar = () => {
                         !localStorage.getItem("account-token") ?
                         <>
                         <div>
-                            <Link to="/register">Register</Link>
+                            <Link to="/register" style={{ textDecoration: 'none' }}>Register</Link>
                         </div>
                         <div>
-                            <Link to="/login">Login</Link>
+                            <Link to="/login" style={{ textDecoration: 'none' }}>Login</Link>
                         </div> </>
                         : <>
                         <div>
-                            <Link to="/me">Messages</Link>
+                            <Link to="/me" style={{ textDecoration: 'none' }}>Messages</Link>
                         </div>
-                        <div onClick={() => {
+                        <a href="#" onClick={(event) => {
                             localStorage.removeItem("account-token");
+                            event.preventDefault();
+                            window.location.reload(false);
                         }}>
                             Logout
-                        </div>
+                        </a>
                         </>
                         : null
                     }
@@ -66,7 +68,7 @@ const NavBar = () => {
         <Route path="/posts">
             <div className="dropdown-container" onMouseEnter={() => setDropdown(true)} onMouseLeave={() => setDropdown(false)}>
                 <div id="profile">
-                    <Link to="/profile">Profile</Link>
+                    <Link to="/profile" style={{ textDecoration: 'none' }}>Profile</Link>
                 </div>
                 <div id="dropdown">
                     {
@@ -74,20 +76,23 @@ const NavBar = () => {
                         !localStorage.getItem("account-token") ?
                         <>
                         <div>
-                            <Link to="/register">Register</Link>
+                            <Link to="/register" style={{ textDecoration: 'none' }}>Register</Link>
                         </div>
                         <div>
-                            <Link to="/login">Login</Link>
+                            <Link to="/login" style={{ textDecoration: 'none' }}>Login</Link>
                         </div> </>
                         : <>
                         <div>
-                            <Link to="/me">Messages</Link>
+                            <Link to="/me" style={{ textDecoration: 'none' }}>Messages</Link>
                         </div>
-                        <div onClick={() => {
+                        <a href="#" onClick={(event) => {
                             localStorage.removeItem("account-token");
+                            event.preventDefault();
+                            window.location.reload(false);
+
                         }}>
                             Logout
-                        </div>
+                        </a>
                         </>
                         : null
                     }
@@ -97,7 +102,7 @@ const NavBar = () => {
         <Route path="/me">
             <div className="dropdown-container" onMouseEnter={() => setDropdown(true)} onMouseLeave={() => setDropdown(false)}>
                 <div id="profile">
-                    <Link to="/profile">Profile</Link>
+                    <Link to="/profile" style={{ textDecoration: 'none' }}>Profile</Link>
                 </div>
                 <div id="dropdown">
                     {
@@ -105,17 +110,20 @@ const NavBar = () => {
                         !localStorage.getItem("account-token") ?
                         <>
                         <div>
-                            <Link to="/register">Register</Link>
+                            <Link to="/register" style={{ textDecoration: 'none' }}>Register</Link>
                         </div>
                         <div>
-                            <Link to="/login">Login</Link>
+                            <Link to="/login" style={{ textDecoration: 'none' }}>Login</Link>
                         </div> </>
                         : <>
-                        <div onClick={() => {
+                        <a href="#" onClick={(event) => {
                             localStorage.removeItem("account-token");
+                            event.preventDefault();
+                            window.location.reload(false);
+
                         }}>
                             Logout
-                        </div>
+                        </a>
                         </>
                         : null
                     }
@@ -125,7 +133,7 @@ const NavBar = () => {
         <Route path="/register">
             <div className="dropdown-container" onMouseEnter={() => setDropdown(true)} onMouseLeave={() => setDropdown(false)}>
                 <div id="profile">
-                    <Link to="/profile">Profile</Link>
+                    <Link to="/profile" style={{ textDecoration: 'none' }}>Profile</Link>
                 </div>
                 <div id="dropdown">
                     {
@@ -134,27 +142,30 @@ const NavBar = () => {
                         <>
                         
                         <div>
-                            <Link to="/login">Login</Link>
+                            <Link to="/login" style={{ textDecoration: 'none' }}>Login</Link>
                         </div> </>
                         : <>
                         <div>
-                            <Link to="/me">Messages</Link>
+                            <Link to="/me" style={{ textDecoration: 'none' }}>Messages</Link>
                         </div>
-                        <div onClick={() => {
+                        <a href="#" onClick={(event) => {
                             localStorage.removeItem("account-token");
+                            event.preventDefault();
+                            window.location.reload(false);
+
                         }}>
                             Logout
-                        </div>
+                        </a>
                         </>
                         : null
                     }
                 </div>
             </div>
         </Route>
-        {/* <React path="/login">
+        <Route path="/login">
             <div className="dropdown-container" onMouseEnter={() => setDropdown(true)} onMouseLeave={() => setDropdown(false)}>
                 <div id="profile">
-                    <Link to="/profile">Profile</Link>
+                    <Link to="/profile" style={{ textDecoration: 'none' }}>Profile</Link>
                 </div>
                 <div id="dropdown">
                     {
@@ -162,24 +173,27 @@ const NavBar = () => {
                         !localStorage.getItem("account-token") ?
                         <>
                         <div>
-                            <Link to="/register">Register</Link>
+                            <Link to="/register" style={{ textDecoration: 'none' }}>Register</Link>
                         </div>
                         </>
                         : <>
                         <div>
-                            <Link to="/me">Messages</Link>
+                            <Link to="/me" style={{ textDecoration: 'none' }}>Messages</Link>
                         </div>
-                        <div onClick={() => {
+                        <a href="#" onClick={(event) => {
                             localStorage.removeItem("account-token");
+                            event.preventDefault();
+                            window.location.reload(false);
+
                         }}>
                             Logout
-                        </div>
+                        </a>
                         </>
                         : null
                     }
                 </div>
             </div>
-        </React> */}
+        </Route>
     </div>
     )
 }

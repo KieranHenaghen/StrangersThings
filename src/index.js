@@ -22,25 +22,11 @@ const App = (props) => {
         <section id="postsection">
             
             <Route path="/posts">
-            {
-                localStorage.getItem("account-token") ? 
-                <button onClick={() => { 
-                    return (
-                        <PostForm />
-                    )}}>Create New Post</button>
-                : null
-            }
+
                 <Posts />
             </Route>
             <Route exact path="/">
-            {
-                localStorage.getItem("account-token") ? 
-                <button onClick={() => { 
-                    return (
-                        <PostForm />
-                    )}}>Create New Post</button>
-                : null
-            }
+            
                 <Posts />
             </Route>
             <Route path="/register">
@@ -49,13 +35,14 @@ const App = (props) => {
             <Route path="/login">
                 <Login />
             </Route>
-            <Route exact path="/profile">
+            <Route path="/profile">
                 {
                     localStorage.getItem("account-token") ?
                     <>
-                    <button onClick={() => {
+                    <button className="logout-button" onClick={(event) => {
                         localStorage.removeItem("account-token");
-                        
+                        event.preventDefault();
+                        window.location.reload(false);
                         }}>Logout</button>
                     <section>
                         <Messages />
